@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Update Task</h1>
+
+<form method="post">
+    {% csrf_token %}  <!-- for secure form submission -->
+
+    {{ update_form.as_div}}
+    <input type="submit" value="Update Task" />
+</form>
+
+{% endblock %}

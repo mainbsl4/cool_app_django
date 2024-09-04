@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Title is {{title}}</h1>
+    <h1>Nmae is {{name}}</h1>
+    <ul>
+        {% for task in tasks %}
+        <!-- i want to show only one data  -->
+            {% if task == 'Task 1' %}
+                <li>{{ task }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

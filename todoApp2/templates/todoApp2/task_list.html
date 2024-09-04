@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>All task</h1>
+<form action="">
+  <!-- <input type="text" name="q" placeholder="Search task..." />
+  <input type="submit" value="Search" /> -->
+  {{search_form}}
+  <input type="submit" value="Search" />
+  <a href="/api/alltasks/">Reset</a>
+  <!-- reset link -->
+</form>
+<button><a href="{% url 'add_task_form' %}">Add task</a></button>
+{% for task in tasks %}
+<a href="{% url 'task_details' task.pk %}">{{ task.title }}</a> <a href="{% url 'delete_task' task.pk%}" >Delete</a> <a href="{% url 'update_task_form' task.id %}">Update</a><br>
+{% endfor %}
+
+<a href="/api/alltasks/?completed=1">completed</a>
+<a href="/api/alltasks/?completed=0">not completed</a>
+<a href="/api/alltasks">All</a>
+
+{% endblock content %}

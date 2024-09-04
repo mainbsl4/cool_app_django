@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add Task</h1>
+
+<form method="post">
+    {% csrf_token %}  <!-- for secure form submission -->
+
+    {{ taskform.as_div}}
+    <input type="submit" value="Save Task" />
+</form>
+
+{% endblock %}
