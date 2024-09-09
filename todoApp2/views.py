@@ -136,7 +136,7 @@ def update_task_form(request, pk):
 
 
 # task by user id 
-def taskByUserId(request, user_id):
+def taskByUserId(request, pk):
 #  -------------------------------------------1------------------------------------
     # tasks = Task.objects.filter(user_id= user_id).values()
     # return JsonResponse({"tasks": list(tasks)})
@@ -154,7 +154,7 @@ def taskByUserId(request, user_id):
 
     # return JsonResponse({"tasks": task_arr})
 #  -------------------------------------------3------------------------------------
-    user = User.objects.get(pk = user_id)
+    user = User.objects.get(pk = pk)
     # if i don't use related_name in models i have to access task by task_set in user.tasks
     tasks = user.tasks.all().values()
     return JsonResponse({"tasks": list(tasks)}) 

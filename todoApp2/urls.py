@@ -9,6 +9,6 @@ urlpatterns = [
     path('updatetask/<int:pk>/', update_task, name="update_task"),
     path('addtaskform/', add_task_form, name="add_task_form"),
     path('updatetaskform/<int:pk>/', update_task_form, name="update_task_form"),
-    path('user/<int:user_id>/', taskByUserId, name="task_by_user_id"),
+    path('user/<int:pk>/', taskByUserId, name="task_by_user_id"),
 
 ]
