@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from todoApp2.models import Task
 from todoApp2.froms import SearchForm, TaskForm
-from django.http import HttpResponse
-
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.models import User
 
 # Create your views here.
 def task_list(request):
@@ -132,3 +132,31 @@ def update_task_form(request, pk):
         return render(request, "todoApp2/updateTask.html", context=context)
     except Task.DoesNotExist:
         return HttpResponse("id is not abailable" + str(pk))
+
+
+
+# task by user id 
+def taskByUserId(request, user_id):
+#  -------------------------------------------1------------------------------------
+    # tasks = Task.objects.filter(user_id= user_id).values()
+    # return JsonResponse({"tasks": list(tasks)})
+#  -------------------------------------------2------------------------------------
+    # tasks = Task.objects.filter(user_id=user_id)
+    # task_arr = []
+    # for task in tasks:
+    #     task_arr.append({
+    #         "id": task.id,
+    #         "title": task.title,
+    #         "description": task.description,
+    #         "completed": task.completed,
+    #         "user": task.user.email
+    #     })
+
+    # return JsonResponse({"tasks": task_arr})
+#  -------------------------------------------3------------------------------------
+    user = User.objects.get(pk = user_id)
+    # if i don't use related_name in models i have to access task by task_set in user.tasks
+    tasks = user.tasks.all().values()
+    return JsonResponse({"tasks": list(tasks)}) 
+
+

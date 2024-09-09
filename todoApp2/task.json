@@ -5,7 +5,8 @@
             "title": "Task 1",
             "description": "Description 1",
             "completed": false,
-            "created_at": "2013-01-01 00:00:00"
+            "created_at": "2013-01-01 00:00:00",
+            "user_id": 2
         }
     },
     {
@@ -14,7 +15,8 @@
             "title": "Task 2",
             "description": "Description 2",
             "completed": true,
-            "created_at": "2013-02-02 00:00:00"
+            "created_at": "2013-02-02 00:00:00",
+            "user_id": 2
         }
     },
     {
@@ -23,7 +25,8 @@
             "title": "Task 3",
             "description": "Description 3",
             "completed": false,
-            "created_at": "2013-01-01 00:00:00"
+            "created_at": "2013-01-01 00:00:00",
+            "user_id": 2
         }
     },
     {
@@ -32,7 +35,8 @@
             "title": "Task 4",
             "description": "Description 4",
             "completed": true,
-            "created_at": "2013-02-02 00:00:00"
+            "created_at": "2013-02-02 00:00:00",
+            "user_id": 2
         }
     }
 ]
